@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ArticlesDisplay from "./components/ArticlesDisplay";
+import { getArticles } from "./Api";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [articlesDisplay, setArticlesDisplay] = useState([]);
+
+  useEffect((articlesDisplay) => {
+    getArticles()
+      .then((articles) => {
+        const articlesDisplay = [
+          articles[0],
+          articles[1],
+          articles[2],
+          articles[3],
+          articles[4],
+          articles[5],
+        ];
+        setArticlesDisplay(articlesDisplay);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Header />
+      <div className="articles-display">
+        <ArticlesDisplay articlesDisplay={articlesDisplay} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

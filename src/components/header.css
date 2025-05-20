@@ -1,0 +1,85 @@
+header {
+  background-color: rgb(206, 18, 74);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  margin: 0;
+}
+
+.header-div-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 4em;
+}
+
+.header-div-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 6em;
+  align-items: center;
+}
+
+h1 {
+  font-size: 6.5em;
+  line-height: 2em;
+  color: rgb(0, 0, 0);
+  align-self: center;
+}
+
+#logo {
+  max-height: 8em;
+  max-width: 14em;
+  padding: 1em;
+  will-change: filter;
+  transition: filter 300ms;
+  align-self: center;
+}
+#logo:hover {
+  filter: drop-shadow(0 0 1em #168bacaa);
+}
+
+#search {
+  width: 35px;
+  margin: 0.5em;
+}
+
+i {
+  font-size: 2.5em;
+  align-self: center;
+  color: rgb(89, 159, 192);
+}
+
+.search-input {
+  border-radius: 1em;
+  border: 1px solid transparent;
+  width: 20em;
+  height: 2em;
+  align-self: center;
+}
+
+.search-button {
+  background-color: transparent;
+}
+
+nav {
+  background-color: rgb(241, 241, 241);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 4em;
+}
+
+.nav-bar-text {
+  font-size: 1.2em;
+  line-height: 1.1;
+  color: rgb(49, 69, 78);
+  border-left: 0.3em solid rgb(113, 159, 180);
+  align-self: center;
+  padding: 0 0 0 2em;
+  margin: 0;
+}
