@@ -9,3 +9,14 @@ export const getArticles = () => {
     return res.data.articles;
   });
 };
+
+export const getArticlesByArticleId = (articleId) => {
+  return NcNewsApi.get(`/api/articles/${articleId}`)
+    .then((res) => {
+      console.log(res.data, "res.data");
+      return res.data.article;
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
