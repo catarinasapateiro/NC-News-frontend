@@ -1,0 +1,38 @@
+import "./articlesdisplay.css";
+
+function ArticlesDisplay({ articlesDisplay }) {
+  return (
+    <>
+      {articlesDisplay.map((article, index) => {
+        return (
+          <div key={index} className={`article-container-${index + 1}`}>
+            <h3>{article.title}</h3>
+            <div className="article-card">
+              <p className="articles-text">
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum."
+              </p>
+              <img
+                className={`image-${index + 1}`}
+                src={article.article_img_url}
+                alt={article.title}
+              />
+            </div>
+            <div className="article-card-footer">
+              <p className="articles-text">
+                Published at: {article.created_at}
+              </p>
+              <button className="post-comment-button">Add comment</button>
+            </div>
+          </div>
+        );
+      })}
+    </>
+  );
+}
+export default ArticlesDisplay;
