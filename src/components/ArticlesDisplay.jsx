@@ -1,12 +1,16 @@
 import "./articlesdisplay.css";
+import { Link } from "react-router";
 
 function ArticlesDisplay({ articlesDisplay }) {
   return (
-    <>
+    <div className="articles-display">
       {articlesDisplay.map((article, index) => {
         return (
           <div key={index} className={`article-container-${index + 1}`}>
-            <h3>{article.title}</h3>
+            <Link to={`/${article.article_id}`} className="article-title">
+              {article.title}
+            </Link>
+
             <div className="article-card">
               <p className="articles-text">
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -32,7 +36,7 @@ function ArticlesDisplay({ articlesDisplay }) {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 export default ArticlesDisplay;

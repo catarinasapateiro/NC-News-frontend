@@ -1,0 +1,78 @@
+.articles-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 4em;
+  gap: 2em;
+}
+
+
+.article-reader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  gap: 2em;
+  min-height: 100vh;
+  background-color: rgb(241, 241, 241);
+  padding: 0 3em 3em 3em;
+}
+
+.article-reader-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 1200px;
+  min-width: 600px;
+  width: 100%;
+  border-radius: 0.8em;
+  padding: 2em;
+  background-color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+.article-reader-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  float: left;
+  margin: 0 1em 1em 0;
+  flex-grow: 1;
+}
+
+.article-reader-title {
+  align-self: flex-start;
+  font-size: 2.2em;
+  text-decoration: underline;
+  margin: 2em 0 0 1em;
+  justify-self: flex-start;
+}
+
+.article-reader-text {
+  font-size: 1.2em;
+  text-align: justify;
+  line-height: 1.8;
+  flex-grow: 1;
+}
+
+.article-reader-card-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: baseline;
+  margin: 1em 1.5em 1em 1em;
+}
+
+.reader-post-comment-button {
+  justify-self: end;
+  background-color: rgb(206, 18, 74);
+  color: rgb(241, 241, 241);
+  font-weight: 3em;
+  font-size: 1.2em;
+}
+
+.loading-text {
+  justify-self: center;
+}

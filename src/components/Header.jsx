@@ -1,5 +1,6 @@
 import newsLogo from "../../src/assets/newspaper.png";
 import "./header.css";
+import { Link } from "react-router";
 
 function Header() {
   return (
@@ -17,9 +18,15 @@ function Header() {
         </div>
       </header>
       <nav>
-        <p className="nav-bar-text">Home</p>
-        <p className="nav-bar-text">Topics</p>
-        <p className="nav-bar-text">Login</p>
+        <Link to="/" className="nav-bar-text">
+          Home
+        </Link>
+        <Link to="/topic" className="nav-bar-text">
+          Topics
+        </Link>
+        <Link to="/topic" className="nav-bar-text">
+          Login
+        </Link>
       </nav>
     </>
   );
