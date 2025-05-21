@@ -7,7 +7,6 @@
   gap: 2em;
 }
 
-
 .article-reader-container {
   display: flex;
   flex-direction: column;
@@ -59,10 +58,17 @@
 
 .article-reader-card-footer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: center;
-  align-items: baseline;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: space-around;
+  align-items: center;
   margin: 1em 1.5em 1em 1em;
+}
+
+.reader-get-comment-link {
+  font-size: 1.2em;
+  align-self: center;
+  justify-self: center;
+  margin-left: 4em;
 }
 
 .reader-post-comment-button {

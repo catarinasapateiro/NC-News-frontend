@@ -6,6 +6,8 @@ import ArticlesDisplay from "./components/ArticlesDisplay";
 import ArticleReaderDisplay from "./components/ArticleReaderDisplay";
 import { getArticles } from "./Api";
 import { Routes, Route } from "react-router";
+import CommentsDisplay from "./components/CommentsDisplay";
+
 
 function App() {
   const [articlesDisplay, setArticlesDisplay] = useState([]);
@@ -25,8 +27,9 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-      });
-  }, []);
+      }),
+      [];
+  });
 
   return (
     <>
@@ -36,7 +39,8 @@ function App() {
           path="/"
           element={<ArticlesDisplay articlesDisplay={articlesDisplay} />}
         />
-        <Route path="/:article_id" element={<ArticleReaderDisplay />}></Route>
+        <Route path="/:article_id" element={<ArticleReaderDisplay />} />
+        <Route path="/:article_id/comments" element={<CommentsDisplay />} />
       </Routes>
       <Footer />
     </>
