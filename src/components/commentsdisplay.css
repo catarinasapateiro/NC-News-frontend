@@ -1,0 +1,77 @@
+.articles-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 4em;
+  gap: 2em;
+}
+
+h3 {
+  margin-left: 1em;
+}
+
+.comment-card {
+  background-color: rgba(235, 232, 233, 0.5);
+  padding: 1em;
+  max-width: 1260px;
+  justify-content: center;
+  margin: 1em 0 1em 0;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+  padding: 2em;
+}
+
+.comment-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+}
+
+.comments-title-text {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.comment-card-body {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.user-avatar {
+  width: 8em;
+  border-radius: 6em;
+  align-self: flex-start;
+  flex-grow: 1;
+}
+
+.comments-text {
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 1em;
+  flex-grow: 2;
+  padding: 0 1em 0 1em;
+}
+
+.comments-text p {
+  margin: 1em;
+}
+
+.comments-footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: 1.5em;
+  margin-left: 2em;
+  justify-content: space-around;
+}
+
+.votes-box {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}

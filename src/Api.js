@@ -13,8 +13,27 @@ export const getArticles = () => {
 export const getArticlesByArticleId = (articleId) => {
   return NcNewsApi.get(`/api/articles/${articleId}`)
     .then((res) => {
-      console.log(res.data, "res.data");
       return res.data.article;
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+export const getCommentsByArticleId = (articleId) => {
+  return NcNewsApi.get(`/api/articles/${articleId}/comments`)
+    .then((res) => {
+      return res.data.comments;
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+export const getUsers = (username) => {
+  return NcNewsApi.get(`/api/users`)
+    .then((res) => {
+      return res.data.users;
     })
     .catch((err) => {
       throw err;
