@@ -7,9 +7,24 @@
   align-items: center;
 }
 
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  min-width: 1200px;
+}
+
 h3 {
-  align-self: flex-start;
-  margin-left: 18em;
+  justify-self: flex-start;
+  align-self: center;
+  margin: 0;
+}
+
+.reader-post-comment-button {
+  justify-self: flex-end;
+  align-self: center;
+  font-size: 1em;
+  margin: 0;
 }
 
 .comment-card {
@@ -32,6 +47,8 @@ h3 {
   justify-content: flex-start;
   align-items: center;
   margin: 0;
+  min-width: 1100px;
+  max-width: 1100px;
 }
 
 .comments-title-text {

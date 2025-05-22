@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCommentsByArticleId, getUserByUsername } from "../Api";
+import { getCommentsByArticleId } from "../Api";
 import "./commentsdisplay.css";
-import userAvatar from "../assets/147140.png";
+import { Link } from "react-router";
 
 function CommentsDisplay() {
   const { article_id } = useParams();
@@ -31,7 +31,9 @@ function CommentsDisplay() {
 
   return (
     <div className="comments-display">
-      <h3>Comments</h3>
+      <div className="comments-header">
+        <h3>Comments</h3>
+      </div>
       {comments.map((comment, index) => (
         <div key={index} className="comment-card">
           <div className="comment-card-header">
