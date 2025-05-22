@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCommentsByArticleId } from "../Api";
+import { getCommentsByArticleId, getUserByUsername } from "../Api";
 import "./commentsdisplay.css";
 import userAvatar from "../assets/147140.png";
 
@@ -23,14 +23,14 @@ function CommentsDisplay() {
 
   if (isLoading) {
     return (
-      <div className="articles-display">
+      <div className="comments-display">
         <h2 className="loading-text">Loading comments...</h2>
       </div>
     );
   }
 
   return (
-    <>
+    <div className="comments-display">
       <h3>Comments</h3>
       {comments.map((comment, index) => (
         <div key={index} className="comment-card">
@@ -39,7 +39,11 @@ function CommentsDisplay() {
           </div>
           <div className="comment-card-body">
             <div>
-              <img src={userAvatar} alt="user photo" className="user-avatar" />
+              <img
+                src={comment.avatar_url}
+                alt="user photo"
+                className="user-avatar"
+              />
             </div>
             <div className="comments-text">
               <p>&quot;{comment.body}&quot;</p>
@@ -54,16 +58,11 @@ function CommentsDisplay() {
             <p className="comments-text-date">
               {new Date(comment.created_at).toLocaleDateString()}
             </p>
-            <div className="votes-box">
-              <p>
-                <span>votes</span>: {comment.votes}
-              </p>
-              <button>❤</button>
-            </div>
+            <button>delete comment</button>
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
