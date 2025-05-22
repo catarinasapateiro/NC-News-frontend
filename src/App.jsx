@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import "./index.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ArticlesDisplay from "./components/ArticlesDisplay";
@@ -7,7 +7,6 @@ import ArticleReaderDisplay from "./components/ArticleReaderDisplay";
 import { getArticles } from "./Api";
 import { Routes, Route } from "react-router";
 import CommentsDisplay from "./components/CommentsDisplay";
-
 
 function App() {
   const [articlesDisplay, setArticlesDisplay] = useState([]);
@@ -27,9 +26,8 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-      }),
-      [];
-  });
+      });
+  }, []);
 
   return (
     <>

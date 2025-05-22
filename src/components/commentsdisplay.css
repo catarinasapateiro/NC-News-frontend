@@ -1,24 +1,29 @@
-.articles-display {
+.comments-display {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   margin: 4em;
   gap: 2em;
+  min-height: auto;
+  align-items: center;
 }
 
 h3 {
-  margin-left: 1em;
+  align-self: flex-start;
+  margin-left: 18em;
 }
 
 .comment-card {
   background-color: rgba(235, 232, 233, 0.5);
   padding: 1em;
-  max-width: 1260px;
-  justify-content: center;
   margin: 1em 0 1em 0;
+  padding: 2em;
   display: grid;
   grid-template-rows: 1fr 2fr 1fr;
-  padding: 2em;
+  min-width: 1200px;
+  max-width: 1200px;
+  min-height: 350px;
+  max-height: 350px;
+  flex-grow: 1;
 }
 
 .comment-card-header {
@@ -31,7 +36,7 @@ h3 {
 
 .comments-title-text {
   font-size: 1.5em;
-  margin-bottom: 1em;
+  margin: 0 0 1em 12em;
 }
 
 .comment-card-body {
@@ -41,9 +46,11 @@ h3 {
 }
 
 .user-avatar {
-  width: 8em;
+  width: 7em;
+  height: auto;
   border-radius: 6em;
   align-self: flex-start;
+  justify-self: center;
   flex-grow: 1;
 }
 
@@ -63,15 +70,24 @@ h3 {
 .comments-footer {
   display: flex;
   flex-direction: row;
-  width: 100%;
   align-items: center;
   gap: 1.5em;
-  margin-left: 2em;
+  margin: 1em 0 0 2em;
   justify-content: space-around;
 }
 
 .votes-box {
   display: flex;
-  gap: 1em;
+  gap: 2em;
   align-items: baseline;
+}
+
+.vote-heart-like {
+  color: rgb(206, 18, 74);
+  background-color: rgb(253, 215, 109);
+  font-size: 1.2em;
+}
+
+.vote-heart-unlike {
+  font-size: 1.2em;
 }

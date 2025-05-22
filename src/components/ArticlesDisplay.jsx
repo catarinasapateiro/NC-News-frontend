@@ -29,9 +29,9 @@ function ArticlesDisplay({ articlesDisplay }) {
             </div>
             <div className="article-card-footer">
               <p className="articles-text">
-                Published at: {article.created_at}
+                Published at:{" "}
+                {new Date(article.created_at).toLocaleDateString()}
               </p>
-              <button className="post-comment-button">Add comment</button>
             </div>
           </div>
         );

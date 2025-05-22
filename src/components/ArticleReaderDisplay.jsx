@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getArticlesByArticleId } from "../Api";
+import { getArticlesByArticleId, patchArticleVotes } from "../Api";
 import "./articlereaderdisplay.css";
 import { Link } from "react-router";
 
@@ -8,6 +8,30 @@ function ArticleReaderDisplay() {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [hasVoted, setHasVoted] = useState(false);
+
+  function handleVote() {
+    if (hasVoted === false) {
+      patchArticleVotes(article_id, 1)
+        .then(() => {
+          setHasVoted(true);
+        })
+        .catch((err) => {
+          console.log(err);
+          setHasVoted(false);
+        });
+    }
+    if (hasVoted === true) {
+      patchArticleVotes(article_id, -1)
+        .then(() => {
+          setHasVoted(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setHasVoted(true);
+        });
+    }
+  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -15,6 +39,7 @@ function ArticleReaderDisplay() {
       .then((article) => {
         setArticle(article);
         setIsLoading(false);
+        console.log(article);
       })
       .catch((err) => {
         console.log(err);
@@ -43,10 +68,21 @@ function ArticleReaderDisplay() {
           />
         </div>
         <div className="article-reader-card-footer">
-          <p className="article-reader-text">By {article.author}</p>
-          <p className="article-reader-text">
-            Published at: {article.created_at}
-          </p>
+          <div>
+            <p className="article-reader-text">By {article.author}</p>
+            <p className="article-reader-text">
+              Published at: {new Date(article.created_at).toLocaleDateString()}
+            </p>
+          </div>
+          <div className="votes-box">
+            <p>votes: {hasVoted ? article.votes + 1 : article.votes}</p>
+            <button
+              className={hasVoted ? "vote-heart-like" : "vote-heart-unlike"}
+              onClick={() => handleVote()}
+            >
+              ❤
+            </button>
+          </div>
           <Link
             to={`/${article.article_id}/comments`}
             className="reader-get-comment-link"
