@@ -30,19 +30,16 @@ export const getCommentsByArticleId = (articleId) => {
     });
 };
 
-export const getUserByUsername = (username) => {
-  return NcNewsApi.get(`/api/users/${username}`)
-    .then((res) => {
-      return res.data.users;
-    })
-    .catch((err) => {
-      throw err;
-    });
-};
-
 export const patchArticleVotes = (article_id, number) => {
   return NcNewsApi.patch(`/api/articles/${article_id}`, {
     article_id: article_id,
     inc_votes: number,
+  });
+};
+
+export const postComment = (article_id, username, commentText) => {
+  return NcNewsApi.post(`/api/articles/${article_id}/comments`, {
+    username: username,
+    body: commentText,
   });
 };

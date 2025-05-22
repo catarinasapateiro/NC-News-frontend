@@ -73,7 +73,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 4em;
-  margin-bottom: auto;
+  position: static;
 }
 
 .nav-bar-text {

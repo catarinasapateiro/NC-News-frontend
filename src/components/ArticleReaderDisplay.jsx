@@ -89,7 +89,9 @@ function ArticleReaderDisplay() {
           >
             {article.comment_count} comments
           </Link>
-          <button className="reader-post-comment-button">Add comment</button>
+          <Link to={`/${article.article_id}/comments/post`}>
+            <button className="reader-post-comment-button">Add comment</button>
+          </Link>
         </div>
       </div>
     );

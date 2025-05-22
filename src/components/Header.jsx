@@ -1,8 +1,11 @@
 import newsLogo from "../../src/assets/newspaper.png";
 import "./header.css";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { AccountContext } from "./AccountContext";
 
 function Header() {
+  const { loggedInUser } = useContext(AccountContext);
   return (
     <>
       <header>
@@ -24,8 +27,9 @@ function Header() {
         <Link to="/topic" className="nav-bar-text">
           Topics
         </Link>
+
         <Link to="/topic" className="nav-bar-text">
-          Login
+          {loggedInUser.length > 0 ? loggedInUser[0].name : "Login"}
         </Link>
       </nav>
     </>

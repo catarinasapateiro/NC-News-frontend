@@ -4,9 +4,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ArticlesDisplay from "./components/ArticlesDisplay";
 import ArticleReaderDisplay from "./components/ArticleReaderDisplay";
+import { AccountProvider } from "./components/AccountContext";
 import { getArticles } from "./Api";
 import { Routes, Route } from "react-router";
 import CommentsDisplay from "./components/CommentsDisplay";
+import CommentForm from "./components/CommentForm";
 
 function App() {
   const [articlesDisplay, setArticlesDisplay] = useState([]);
@@ -31,16 +33,24 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Routes>
-        <Route
-          path="/"
-          element={<ArticlesDisplay articlesDisplay={articlesDisplay} />}
-        />
-        <Route path="/:article_id" element={<ArticleReaderDisplay />} />
-        <Route path="/:article_id/comments" element={<CommentsDisplay />} />
-      </Routes>
-      <Footer />
+      <AccountProvider>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={<ArticlesDisplay articlesDisplay={articlesDisplay} />}
+          />
+          <Route
+            path="/:article_id"
+            element={[<ArticleReaderDisplay />, <CommentsDisplay />]}
+          />
+          <Route
+            path="/:article_id/comments/post"
+            element={[<CommentForm />, <CommentsDisplay />]}
+          />
+        </Routes>
+        <Footer />
+      </AccountProvider>
     </>
   );
 }
