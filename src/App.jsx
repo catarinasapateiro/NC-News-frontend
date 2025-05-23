@@ -5,52 +5,20 @@ import Footer from "./components/Footer";
 import ArticlesDisplay from "./components/ArticlesDisplay";
 import ArticleReaderDisplay from "./components/ArticleReaderDisplay";
 import { AccountProvider } from "./components/AccountContext";
-import { getArticles } from "./Api";
 import { Routes, Route } from "react-router";
 import CommentsDisplay from "./components/CommentsDisplay";
 import CommentForm from "./components/CommentForm";
+import ArticlesDisplayByTopic from "./components/ArticlesDisplayByTopic";
 
 function App() {
-  const [mainArticlesDisplay, setMainArticlesDisplay] = useState([]);
-  const [articlesDisplay, setArticlesDisplay] = useState([]);
-
-  useEffect((articlesDisplay) => {
-    getArticles()
-      .then((articles) => {
-        const mainArticlesDisplay = [articles[0], articles[1], articles[8]];
-
-        const articlesDisplay = [
-          articles[2],
-          articles[3],
-          articles[4],
-          articles[5],
-          articles[6],
-          articles[7],
-        ];
-
-        setArticlesDisplay(articlesDisplay);
-        setMainArticlesDisplay(mainArticlesDisplay);
-        console.log(articlesDisplay, "is an array?");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   return (
     <>
       <AccountProvider>
         <Header />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <ArticlesDisplay
-                articlesDisplay={articlesDisplay}
-                mainArticlesDisplay={mainArticlesDisplay}
-              />
-            }
-          />
+          <Route path="/" element={<ArticlesDisplay />} />
+          <Route path="/topics/:topic" element={<ArticlesDisplayByTopic />} />
+
           <Route
             path="/:article_id"
             element={[<ArticleReaderDisplay />, <CommentsDisplay />]}

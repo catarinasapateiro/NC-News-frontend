@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getArticlesByArticleId, patchArticleVotes } from "../Api";
-import "./articlereaderdisplay.css";
+import "./css_components/articlereaderdisplay.css";
 import { Link } from "react-router";
 
 function ArticleReaderDisplay() {

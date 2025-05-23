@@ -5,9 +5,24 @@ const NcNewsApi = axios.create({
 });
 
 export const getArticles = () => {
-  return NcNewsApi.get("/api/articles").then((res) => {
-    return res.data.articles;
-  });
+  return NcNewsApi.get(`/api/articles`)
+    .then((res) => {
+      return res.data.articles;
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+export const getArticlesByTopic = (topic) => {
+  return NcNewsApi.get(`/api/articles?topic=${topic}`)
+    .then((res) => {
+      console.log(res.data, "response");
+      return res.data.articles;
+    })
+    .catch((err) => {
+      throw err;
+    });
 };
 
 export const getArticlesByArticleId = (articleId) => {
