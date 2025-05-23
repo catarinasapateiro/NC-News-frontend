@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import "./articlesdisplay.css";
+import "./css_components/articlesdisplay.css";
 
 function MainArticlesDisplay({ mainArticlesDisplay }) {
   return (

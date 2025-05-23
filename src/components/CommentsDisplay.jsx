@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentsByArticleId, deleteComment } from "../Api";
-import "./commentsdisplay.css";
+import "./css_components/commentsdisplay.css";
 
 function CommentsDisplay() {
   const { article_id } = useParams();

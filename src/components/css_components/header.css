@@ -88,7 +88,69 @@ i {
   margin: 0;
 }
 
-.login-avatar {
-  width: 1em;
-  padding-left: 1em;
+.select-input {
+  border: 0 solid transparent;
+  font-size: 1.3em;
+  line-height: 1.1;
+  color: rgb(49, 69, 78);
+  border-left: 0.3em solid rgb(113, 159, 180);
+  padding: 0 0 0 2em;
+  appearance: none;
+  padding: 0 2em;
+  outline: none;
+}
+
+.custom-select {
+  position: relative;
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+}
+
+.custom-arrow::before,
+.custom-arrow::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-arrow::before {
+  border-left: 0.6em solid transparent;
+  border-right: 0.6em solid transparent;
+  border-bottom: 0.6em solid rgb(113, 159, 180);
+  top: 30%;
+}
+
+.custom-arrow::after {
+  border-left: 0.6em solid transparent;
+  border-right: 0.6em solid transparent;
+  border-top: 0.6em solid rgb(113, 159, 180);
+  top: 75%;
+}
+
+.icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;        
+  height: 2em;        
+  border-radius: 50%;   
+  background-color: white;
+  margin: 0 0.5em;  
+  ma
+}
+
+.fa-user {
+  color: rgb(113, 159, 180);
+  font-size: 1.2em;     
+ 
 }
