@@ -3,6 +3,7 @@ import "./header.css";
 import { Link } from "react-router";
 import { useContext } from "react";
 import { AccountContext } from "./AccountContext";
+import loginAvatar from "../assets/logo.png";
 
 function Header() {
   const { loggedInUser } = useContext(AccountContext);
@@ -27,10 +28,12 @@ function Header() {
         <Link to="/topic" className="nav-bar-text">
           Topics
         </Link>
-
-        <Link to="/topic" className="nav-bar-text">
-          {loggedInUser.length > 0 ? loggedInUser[0].name : "Login"}
-        </Link>
+        <span>
+          <Link to="/topic" className="nav-bar-text">
+            {loggedInUser.length > 0 ? loggedInUser[0].name : "Login"}
+          </Link>
+          <img className="login-avatar" src={loginAvatar} alt="login avatar" />
+        </span>
       </nav>
     </>
   );

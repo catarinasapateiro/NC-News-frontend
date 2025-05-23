@@ -1,13 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCommentsByArticleId } from "../Api";
+import { getCommentsByArticleId, deleteComment } from "../Api";
 import "./commentsdisplay.css";
-import { Link } from "react-router";
 
 function CommentsDisplay() {
   const { article_id } = useParams();
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isCommentdeleted, setIsCommentDeleted] = useState(false);
+
+  function handleDeletedComment(e) {
+    const comment_id = e.target.value;
+    setIsCommentDeleted(true);
+    deleteComment(comment_id)
+      .then((res) => {
+        if (res.status === 204) {
+          setIsCommentDeleted(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,14 +33,10 @@ function CommentsDisplay() {
       .catch((err) => {
         console.log(err);
       });
-  }, [article_id]);
+  }, [article_id, isCommentdeleted]);
 
   if (isLoading) {
-    return (
-      <div className="comments-display">
-        <h2 className="loading-text">Loading comments...</h2>
-      </div>
-    );
+    return <div className="comments-display"></div>;
   }
 
   return (
@@ -56,11 +66,22 @@ function CommentsDisplay() {
             <div className="stars">
               <span>★</span>
               <span>★</span>
+              <span>★</span>
             </div>
             <p className="comments-text-date">
               {new Date(comment.created_at).toLocaleDateString()}
             </p>
-            <button>delete comment</button>
+            {!isCommentdeleted ? (
+              <button
+                value={comment.comment_id}
+                className="delete-comment-button"
+                onClick={handleDeletedComment}
+              >
+                delete comment
+              </button>
+            ) : (
+              <p>Please try again</p>
+            )}
           </div>
         </div>
       ))}
