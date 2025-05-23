@@ -1,4 +1,4 @@
-.articles-display {
+.article-display {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -12,9 +12,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 0;
+  margin-top: 7em;
   gap: 2em;
-  min-height: 80vh;
+  min-height: 70vh;
   background-color: rgb(241, 241, 241);
   padding: 0 3em 3em 3em;
 }

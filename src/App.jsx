@@ -11,20 +11,26 @@ import CommentsDisplay from "./components/CommentsDisplay";
 import CommentForm from "./components/CommentForm";
 
 function App() {
+  const [mainArticlesDisplay, setMainArticlesDisplay] = useState([]);
   const [articlesDisplay, setArticlesDisplay] = useState([]);
 
   useEffect((articlesDisplay) => {
     getArticles()
       .then((articles) => {
+        const mainArticlesDisplay = [articles[0], articles[1], articles[8]];
+
         const articlesDisplay = [
-          articles[0],
-          articles[1],
           articles[2],
           articles[3],
           articles[4],
           articles[5],
+          articles[6],
+          articles[7],
         ];
+
         setArticlesDisplay(articlesDisplay);
+        setMainArticlesDisplay(mainArticlesDisplay);
+        console.log(articlesDisplay, "is an array?");
       })
       .catch((err) => {
         console.log(err);
@@ -38,7 +44,12 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<ArticlesDisplay articlesDisplay={articlesDisplay} />}
+            element={
+              <ArticlesDisplay
+                articlesDisplay={articlesDisplay}
+                mainArticlesDisplay={mainArticlesDisplay}
+              />
+            }
           />
           <Route
             path="/:article_id"
